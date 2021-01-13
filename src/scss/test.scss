@@ -1,0 +1,68 @@
+@import "./_variable.scss";
+
+@mixin mobile {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+.main_div {
+  background: purple;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  max-height: 500px;
+}
+
+.main_div {
+  width: 32%;
+  background: purple;
+  height: 400px;
+  margin: 5px auto 20px;
+  padding: 5px;
+
+  background-image: url("https://homepages.cae.wisc.edu/~ece533/images/baboon.png");
+  background-size: cover;
+  background-position: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.not_load {
+  width: 100%;
+  background: gray;
+  height: 300px;
+  margin: 5px auto 20px;
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@include mobile {
+  .main_div {
+    width: 100%;
+  }
+}
+
+@include tablet {
+  .main_div {
+    width: 100%;
+  }
+}
